@@ -26,7 +26,7 @@ pipeline {
                 echo '📤 Pushing to Docker Hub...'
                 withCredentials([string(credentialsId: 'dockerhub-token', variable: 'DOCKERHUB_TOKEN')]) {
                     sh '''
-                        echo "$DOCKERHUB_TOKEN" | docker login -u ht302 --password-stdin
+                        echo docker pat | docker login -u ht302 --password-stdin
                         docker push ht302/calculator-app:latest
                     '''
                 }
